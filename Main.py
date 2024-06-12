@@ -2,7 +2,8 @@
 import time
 import Module.Algorithms as S
 
-a=input("Enter \"Y\" to start!:")
+# a = input("Enter \"Y\" to start!:")
+a = "y"
 
 def sort_time(func, lst):
     start_time = time.time()
@@ -20,7 +21,7 @@ def __main__():
             break
         elif type(inp) == type([]):
             algorithms = {"Bubble" : S.Bubble, "Selection" : S.Selection, "Insertion" : S.Insertion,\
-                           "Merge" : S.Merge, "Quick" : S.Quick, "Heap" : S.Heap, "Counting" : S.Counting,\
+                           "Merge" : S.Merge_sort, "Quick" : S.Quick, "Heap" : S.Heap, "Counting" : S.Counting,\
                               "Radix" : S.Radix, "Bucket" : S.Bucket, "Shell" : S.Shell, "Tim" : S.Tim,\
                                   "Comb" : S.Comb, "Pigeonhole" : S.Pigeonhole, "Cycle" : S.Cycle, "Bitonic" : S.Bitonic
                                   }
