@@ -8,8 +8,9 @@ a = "y"
 def sort_time(func, lst):
     start_time = time.time()
     sorted_list = func(lst)
+    time.sleep(0.1)
     end_time = time.time()
-    return sorted_list, end_time - start_time
+    return sorted_list, end_time - start_time - 0.1
 
 #__main__
 def __main__():
@@ -21,7 +22,7 @@ def __main__():
             break
         elif type(inp) == type([]):
             algorithms = {"Bubble" : S.Bubble, "Selection" : S.Selection, "Insertion" : S.Insertion,\
-                           "Merge" : S.Merge_sort, "Quick" : S.Quick, "Heap" : S.Heap, "Counting" : S.Counting,\
+                           "Merge" : S.Merge, "Quick" : S.Quick, "Heap" : S.Heap, "Counting" : S.Counting,\
                               "Radix" : S.Radix, "Bucket" : S.Bucket, "Shell" : S.Shell, "Tim" : S.Tim,\
                                   "Comb" : S.Comb, "Pigeonhole" : S.Pigeonhole, "Cycle" : S.Cycle, "Bitonic" : S.Bitonic
                                   }
