@@ -53,13 +53,14 @@ def Merge(lst):
     return lst
 
 def Quick(lst):
-    print(lst)
-    for i in range(len(lst)):
-        for j in range(len(lst)):
-            print(i,j)
-            continue
-    print(lst)
-    return lst
+    if len(lst) <= 1:
+        return lst
+    else:
+        pivot = lst[len(lst) // 2]
+        left = [x for x in lst if x < pivot]
+        middle = [x for x in lst if x == pivot]
+        right = [x for x in lst if x > pivot]
+        return Quick(left) + middle + Quick(right)
 
 def Heap(lst):
     print(lst)

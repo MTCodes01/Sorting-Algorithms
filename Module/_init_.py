@@ -37,38 +37,49 @@
 
 import math
 
-def merge(lst_1, lst_2):
-    lst = []
-    while len(lst_1) > 0 and len(lst_2) > 0:
-        print("test1:", lst_1, lst_2, lst)
-        if lst_1[0] > lst_2[0]:
-            lst.append(lst_2.pop(0))
-        elif lst_1[0] < lst_2[0]:
-            lst.append(lst_1.pop(0))
-        else:
-            lst.append(lst_1.pop(0))
-            lst.append(lst_2.pop(0))
-    print("test2:", lst_1, lst_2, lst)
-    lst.extend(lst_1)
-    lst.extend(lst_2)
-    return lst
+# def merge(lst_1, lst_2):
+#     lst = []
+#     while len(lst_1) > 0 and len(lst_2) > 0:
+#         print("test1:", lst_1, lst_2, lst)
+#         if lst_1[0] > lst_2[0]:
+#             lst.append(lst_2.pop(0))
+#         elif lst_1[0] < lst_2[0]:
+#             lst.append(lst_1.pop(0))
+#         else:
+#             lst.append(lst_1.pop(0))
+#             lst.append(lst_2.pop(0))
+#     print("test2:", lst_1, lst_2, lst)
+#     lst.extend(lst_1)
+#     lst.extend(lst_2)
+#     return lst
 
-def merge_sort(lst):
-    l = 0
-    h = len(lst)
-    lst2 = []
-    print("lst1:",lst)
-    if h != 1:
-        mid = math.ceil(h/2)
-        lst2.append(merge_sort(lst[l:mid]))
-        print("lst2_1:",lst2)
-        lst2.append(merge_sort(lst[mid:h]))
-        print("lst2_2:",lst2)
-        return merge(lst2[0], lst2[1])
-    return lst
+# def merge_sort(lst):
+#     l = 0
+#     h = len(lst)
+#     lst2 = []
+#     print("lst1:",lst)
+#     if h != 1:
+#         mid = math.ceil(h/2)
+#         lst2.append(merge_sort(lst[l:mid]))
+#         print("lst2_1:",lst2)
+#         lst2.append(merge_sort(lst[mid:h]))
+#         print("lst2_2:",lst2)
+#         return merge(lst2[0], lst2[1])
+#     return lst
+
+def Quick(lst):
+    if len(lst) <= 1:
+        return lst
+    else:
+        pivot = lst[len(lst) // 2]
+        left = [x for x in lst if x < pivot]
+        middle = [x for x in lst if x == pivot]
+        right = [x for x in lst if x > pivot]
+        return Quick(left) + middle + Quick(right)
+    
 
 lst= [11,22,8,43,94,3,5,1,27,6,7,21,3]
-print(merge_sort(lst.copy()))
+print(Quick(lst.copy()))
 
 # print(len(lst),int(math.ceil(len(lst)/2)))
 # print(lst1 + lst2)

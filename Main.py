@@ -8,9 +8,9 @@ a = "y"
 def sort_time(func, lst):
     start_time = time.time()
     sorted_list = func(lst)
-    time.sleep(0.1)
+    time.sleep(0.01)
     end_time = time.time()
-    return sorted_list, end_time - start_time - 0.1
+    return sorted_list, end_time - start_time - 0.01
 
 #__main__
 def __main__():
