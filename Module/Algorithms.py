@@ -26,21 +26,21 @@ def Insertion(lst):
                 index -= index-j
     return lst
 
-def Combine(lst_1, lst_2):
-    lst = []
-    while len(lst_1) > 0 and len(lst_2) > 0:
-        if lst_1[0] > lst_2[0]:
-            lst.append(lst_2.pop(0))
-        elif lst_1[0] < lst_2[0]:
-            lst.append(lst_1.pop(0))
-        else:
-            lst.append(lst_1.pop(0))
-            lst.append(lst_2.pop(0))
-    lst.extend(lst_1)
-    lst.extend(lst_2)
-    return lst
-
 def Merge(lst):
+    def Combine(lst_1, lst_2):
+        lst = []
+        while len(lst_1) > 0 and len(lst_2) > 0:
+            if lst_1[0] > lst_2[0]:
+                lst.append(lst_2.pop(0))
+            elif lst_1[0] < lst_2[0]:
+                lst.append(lst_1.pop(0))
+            else:
+                lst.append(lst_1.pop(0))
+                lst.append(lst_2.pop(0))
+        lst.extend(lst_1)
+        lst.extend(lst_2)
+        return lst
+    
     l = 0
     h = len(lst)
     lst2 = []
@@ -62,11 +62,33 @@ def Quick(lst):
         return Quick(left) + middle + Quick(right)
 
 def Heap(lst):
+    def Heapify(lst, n, i):
+        largest = i
+        left = 2 * i + 1
+        right = 2 * i + 2
+    
+        if left < n and lst[left] > lst[largest]:
+            largest = left
+    
+        if right < n and lst[right] > lst[largest]:
+            largest = right
+    
+        if largest != i:
+            lst[i], lst[largest] = lst[largest], lst[i]
+            Heapify(lst, n, largest)
+    
+    def BuildMaxHeap(lst):
+        n = len(lst)
+        for i in range(n // 2 - 1, -1, -1):
+            Heapify(lst, n, i)
+
+    n = len(lst)
+    BuildMaxHeap(lst)
+
     print(lst)
-    for i in range(len(lst)):
-        for j in range(len(lst)):
-            print(i,j)
-            continue
+    for i in range(n - 1, 0, -1):
+        lst[i], lst[0] = lst[0], lst[i]
+        Heapify(lst, i, 0)
     print(lst)
     return lst
 
