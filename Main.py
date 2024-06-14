@@ -6,11 +6,10 @@ import Module.Algorithms as S
 a = "y"
 
 def sort_time(func, lst):
-    start_time = time.time()
+    start_time = time.perf_counter()
     sorted_list = func(lst)
-    time.sleep(0.01)
-    end_time = time.time()
-    return sorted_list, end_time - start_time - 0.01
+    end_time = time.perf_counter()
+    return sorted_list, f'{(end_time - start_time):.8f} s'
 
 #__main__
 def __main__():
@@ -32,12 +31,11 @@ def __main__():
                 sorted_lists[i], algorithm_timing[i] = sort_time(j, inp.copy())
             print(f"\nSorted List is: {sorted_lists["Bubble"]}\n")
             for i, j in algorithm_timing.items():
-                print(f"{i} : {j}")
+                print(f"{i:<10} : {j}")
         else:
             print("\nEnter a List!\n")
         break
         
-#__main__() FUNCTION CALL
 if a.lower()=="y":
     # try:
         __main__()

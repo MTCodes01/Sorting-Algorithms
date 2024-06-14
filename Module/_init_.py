@@ -86,10 +86,16 @@ import math
 # lst1.append(lst2.pop(0))
 # print(lst1,lst2)
 
-h = int(input(":"))
-l = h * 2 - 1
-star = 1
-for i in range(h):
-    print(("*" * star).center(l))
-    star += 2
-print("*".center(l))
+# h = int(input(":"))
+# l = h * 2 - 1
+# star = 1
+# for i in range(h):
+#     print(("*" * star).center(l))
+#     star += 2
+# print("*".center(l))
+
+# Example loop
+for i in range(1, 11):
+    j = i * 10
+    # Using string formatting to align colons in the same column
+    print(f"{i:<2} : {j}")
