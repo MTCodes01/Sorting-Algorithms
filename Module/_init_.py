@@ -67,21 +67,29 @@ import math
 #         return merge(lst2[0], lst2[1])
 #     return lst
 
-def Quick(lst):
-    if len(lst) <= 1:
-        return lst
-    else:
-        pivot = lst[len(lst) // 2]
-        left = [x for x in lst if x < pivot]
-        middle = [x for x in lst if x == pivot]
-        right = [x for x in lst if x > pivot]
-        return Quick(left) + middle + Quick(right)
+# def Quick(lst):
+#     if len(lst) <= 1:
+#         return lst
+#     else:
+#         pivot = lst[len(lst) // 2]
+#         left = [x for x in lst if x < pivot]
+#         middle = [x for x in lst if x == pivot]
+#         right = [x for x in lst if x > pivot]
+#         return Quick(left) + middle + Quick(right)
     
 
-lst= [11,22,8,43,94,3,5,1,27,6,7,21,3]
-print(Quick(lst.copy()))
+# lst= [11,22,8,43,94,3,5,1,27,6,7,21,3]
+# print(Quick(lst.copy()))
 
 # print(len(lst),int(math.ceil(len(lst)/2)))
 # print(lst1 + lst2)
 # lst1.append(lst2.pop(0))
 # print(lst1,lst2)
+
+h = int(input(":"))
+l = h * 2 - 1
+star = 1
+for i in range(h):
+    print(("*" * star).center(l))
+    star += 2
+print("*".center(l))
