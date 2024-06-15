@@ -85,21 +85,24 @@ def Heap(lst):
     n = len(lst)
     BuildMaxHeap(lst)
 
-    print(lst)
     for i in range(n - 1, 0, -1):
         lst[i], lst[0] = lst[0], lst[i]
         Heapify(lst, i, 0)
-    print(lst)
     return lst
 
 def Counting(lst):
     print(lst)
-    for i in range(len(lst)):
-        for j in range(len(lst)):
-            print(i,j)
-            continue
-    print(lst)
-    return lst
+    countArray = [0 for i in range(max(lst)+1)]
+    for i in lst:
+        countArray[i] += 1
+    for j in range(len(countArray)-1):
+        countArray[j+1] += countArray[j]
+    outputArray = [0 for i in range(len(lst))]
+    for k in range(len(lst)-1, -1, -1):
+        outputArray[(countArray[lst[k]])-1] += lst[k]
+        countArray[lst[k]] -= 1
+    print(outputArray)
+    return outputArray
 
 def Radix(lst):
     print(lst)

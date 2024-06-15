@@ -77,8 +77,22 @@ import math
 #         right = [x for x in lst if x > pivot]
 #         return Quick(left) + middle + Quick(right)
     
+def Counting(lst):
+    print(lst)
+    countArray = [0 for i in range(max(lst)+1)]
+    for i in lst:
+        countArray[i] += 1
+    for j in range(len(countArray)-1):
+        countArray[j+1] += countArray[j]
+    outputArray = [0 for i in range(len(lst))]
+    for k in range(len(lst)-1, -1, -1):
+        outputArray[(countArray[lst[k]])-1] += lst[k]
+        countArray[lst[k]] -= 1
+    print(outputArray)
+    return outputArray
 
-# lst= [11,22,8,43,94,3,5,1,27,6,7,21,3]
+lst= [10,8,3,5,1,2,6,7,2,3]
+test = Counting(lst.copy())
 # print(Quick(lst.copy()))
 
 # print(len(lst),int(math.ceil(len(lst)/2)))
@@ -95,7 +109,7 @@ import math
 # print("*".center(l))
 
 # Example loop
-for i in range(1, 11):
-    j = i * 10
+# for i in range(1, 11):
+#     j = i * 10
     # Using string formatting to align colons in the same column
-    print(f"{i:<2} : {j}")
+    # print(f"{i:<2} : {j}")
