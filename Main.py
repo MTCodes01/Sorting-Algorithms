@@ -1,3 +1,31 @@
+"""
+This script is designed to test and measure the performance of various sorting algorithms.
+It imports the necessary algorithms from a module and applies them to a given list.
+The execution time for each algorithm is calculated and displayed.
+
+How to Use:
+1. Ensure you have a module named 'Algorithms' with the sorting functions implemented.
+2. Replace the 'inp' variable with your own list of numbers to sort.
+3. Run the script to see the sorted list and the time taken by each algorithm.
+
+List of Algorithms:
+- Bubble Sort
+- Selection Sort
+- Insertion Sort
+- Merge Sort
+- Quick Sort
+- Heap Sort
+- Counting Sort
+- Radix Sort
+- Bucket Sort
+- Shell Sort
+- Tim Sort
+- Comb Sort
+- Pigeonhole Sort
+- Cycle Sort
+- Bitonic Sort
+"""
+
 # Import section
 import time
 import Module.Algorithms as S
